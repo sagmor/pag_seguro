@@ -39,9 +39,9 @@ module PagSeguro
         checkout.extraAmount extra_amount if extra_amount
         checkout.maxUses max_uses || 1
         checkout.maxAge max_age if max_age
-      end
-      builder.shipping do |shipping|
-        shipping.type 3
+        checkout.shipping do |shipping|
+          shipping.type 3
+        end
       end
     end
 

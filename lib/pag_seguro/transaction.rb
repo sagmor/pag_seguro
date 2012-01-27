@@ -1,13 +1,13 @@
 module PagSeguro
   class Transaction < Hashie::Mash
     module STATUS
-      PENDING     = 1
-      ON_ANALYSIS = 2
-      PAYED       = 3 
-      AVAILABLE   = 4
-      DISPUTED    = 5
-      REFUNDED    = 6
-      CANCELED    = 7
+      PENDING     = "1"
+      ON_ANALYSIS = "2"
+      PAYED       = "3" 
+      AVAILABLE   = "4"
+      DISPUTED    = "5"
+      REFUNDED    = "6"
+      CANCELED    = "7"
     end
     
     def success?

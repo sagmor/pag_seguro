@@ -16,9 +16,9 @@ module PagSeguro
       payment
     end
 
-    def notification(params)
+    def notification(code)
       Transaction.new(
-        self.get("transactions/notifications/#{params[:notificationCode]}")["transaction"]
+        self.get("transactions/notifications/#{code}")["transaction"]
       )
     end
 
@@ -33,7 +33,7 @@ module PagSeguro
     end
 
     def get(url,params = {})
-      url = API_HOST+url
+      url = API_HOST + url
 
       params = params.merge({
         :email => self.email,
@@ -41,7 +41,7 @@ module PagSeguro
       })
 
       MultiXml.parse(
-        RestClient.get(url, params)
+        RestClient.get(url, :params => params)
       )
     end
 
