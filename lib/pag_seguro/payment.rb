@@ -35,9 +35,13 @@ module PagSeguro
           self.items.each{ |i| i.to_xml(:builder => items) }
         end
         checkout.reference reference if reference
+        checkout.redirectURL redirect_url if redirect_url
         checkout.extraAmount extra_amount if extra_amount
-        checkout.maxUses max_uses if max_uses
+        checkout.maxUses max_uses || 1
         checkout.maxAge max_age if max_age
+      end
+      builder.shipping do |shipping|
+        shipping.type 3
       end
     end
 
