@@ -13,7 +13,7 @@ module PagSeguro
       builder.item do |item|
         item.id id
         item.description description
-        item.amount amount
+        item.amount ("%.2f" % amount)
         item.quantity quantity
         item.shippingCost shipping_cost if shipping_cost
         item.weight weight if weight
